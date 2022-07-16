@@ -20,6 +20,7 @@ def get_html(code, start_date, end_date, page=1, per=20):
         code, page, start_date, end_date, per)
     rsp = requests.get(url)
     html = rsp.text
+    print(rsp.text)
     return html
  
  
