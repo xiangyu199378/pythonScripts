@@ -18,6 +18,7 @@ matplotlib.rcParams['axes.unicode_minus'] = False
 def get_html(code, start_date, end_date, page=1, per=20):
     url = 'http://fund.eastmoney.com/f10/F10DataApi.aspx?type=lsjz&code={0}&page={1}&sdate={2}&edate={3}&per={4}'.format(
         code, page, start_date, end_date, per)
+    print(url)
     rsp = requests.get(url)
     html = rsp.text
     print(rsp.text)
@@ -28,6 +29,7 @@ def get_fund(code, start_date, end_date, page=1, per=20):
     # 获取html
     html = get_html(code, start_date, end_date, page, per)
     soup = BeautifulSoup(html, 'html.parser')
+
     # 获取总页数
     pattern = re.compile('pages:(.*),')
     result = re.search(pattern, html).group(1)
