@@ -16,6 +16,7 @@ from bs4 import BeautifulSoup
 from xlutils.copy import copy
 import xlsxwriter
 import openpyxl as op
+from  sql import sql_table_fund
 # 处理乱码
 matplotlib.rcParams['font.sans-serif'] = ['SimHei']
 matplotlib.rcParams['font.family']='sans-serif'
@@ -76,5 +77,6 @@ def deal_excel(path):
 
 if __name__ == '__main__':
     curr_dir = os.getcwd()
-    book = deal_excel(curr_dir + '\向氏集团投资跟踪表.xlsx')
+   #book = deal_excel(curr_dir + '\向氏集团投资跟踪表.xlsx')
+    sql_table_fund(1)
 

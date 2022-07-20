@@ -1,6 +1,7 @@
 import sqlite3
  
 from sqlite3 import Error
+from this import s
  
 def sql_table(con):
  
@@ -13,7 +14,8 @@ def sql_table(con):
 def sql_insert(con, entities):
  
     cursorObj = con.cursor()
-    
+   
+#    entities = (2, 'Andrew', 800, 'IT', 'Tech', '2018-02-06') 
     cursorObj.execute('INSERT INTO employees(id, name, salary, department, position, hireDate) VALUES(?, ?, ?, ?, ?, ?)', entities)
     
     con.commit()
@@ -51,8 +53,20 @@ def sql_delete(con):
  
     con.commit()
  
+def sql_table_fundz(con):
+ 
+    cursorObj = con.cursor()
+ 
+    entities = (123, 'Andrew', 800, 'IT', 'Tech', '2018-02-06')
+    #cursorObj.execute("CREATE TABLE fundz(code integer PRIMARY KEY, name text, salary real, department text, position text, Date text)")
+    cursorObj.execute('INSERT INTO fundz(code, name, salary, department, position, Date) VALUES(?, ?, ?, ?, ?, ?)', entities)
+    con.commit()
 
-if __name__ == '__main__':
+
+def sql_table_fund(data):
     con = sqlite3.connect('mydatabase.db')
     cursorObj = con.cursor()
-    sql_fetch(con)
+    entities = (123, 'Andrew', 800, 'IT', 'Tech', '2018-02-06')
+    #cursorObj.execute("CREATE TABLE fundz(code integer PRIMARY KEY, name text, salary real, department text, position text, Date text)")
+    cursorObj.execute('INSERT INTO fundz(code, name, salary, department, position, Date) VALUES(?, ?, ?, ?, ?, ?)', entities)
+    con.commit()
